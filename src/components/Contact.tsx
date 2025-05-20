@@ -20,14 +20,14 @@ const ContactItem: React.FC<{
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="flex items-center gap-4 p-4 rounded-lg bg-white dark:bg-slate-800 shadow-sm hover:shadow-md transition-shadow"
+    className="flex items-center gap-4 p-4 rounded-lg bg-slate-800/80 border border-slate-700/50 hover:bg-slate-700/90 hover:text-slate-50 transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm shadow-lg shadow-sm hover:shadow-md transition-shadow"
   >
     <div className="h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
       {icon}
     </div>
     <div>
-      <div className="text-sm text-gray-500 dark:text-gray-400">{title}</div>
-      <div className="font-medium dark:text-white">{value}</div>
+      <div className="text-sm text-white">{title}</div>
+      <div className="font-medium text-white">{value}</div>
     </div>
   </a>
 );
@@ -183,7 +183,7 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">¿Hablamos?</h3>
-            <p className="text-gray-600 text-white mb-8">
+            <p className="text-white mb-8">
               Si estás interesado en trabajar conmigo o tienes alguna pregunta, no dudes en ponerte en contacto. Estaré encantado de escucharte y responderé a tu mensaje lo antes posible.
             </p>
 
@@ -207,10 +207,10 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold mb-6 dark:text-white">Envíame un mensaje</h3>
+            <div className="bg-slate-800/80 border border-slate-700/50 rounded-2xl shadow-lg p-8">
+              <h3 className="text-2xl font-bold mb-6 text-white">Envíame un mensaje</h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 text-white">
                 <div>
                   <Label htmlFor="name">Nombre</Label>
                   <Input
