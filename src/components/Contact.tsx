@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useCallback } from "react"; // Asegúrate que useCallback está importado
 import { motion } from "framer-motion";
+import Particles from "react-particles"; // Importación añadida
+import type { Engine } from "tsparticles-engine"; // Importación añadida
+import { loadSlim } from "tsparticles-slim"; // Importación añadida
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,7 +16,7 @@ const ContactItem: React.FC<{
   value: string;
   href: string;
 }> = ({ icon, title, value, href }) => (
-  <a 
+  <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
@@ -30,6 +33,15 @@ const ContactItem: React.FC<{
 );
 
 const Contact: React.FC = () => {
+  // Funciones para inicializar y cargar las partículas
+  const particlesInit = useCallback(async (engine: Engine) => {
+    await loadSlim(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async (container: any) => {
+    // console.log("Contact Particles container loaded", container); // Opcional para debugging
+  }, []);
+
   const [formState, setFormState] = React.useState({
     name: "",
     email: "",
@@ -45,15 +57,15 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState(prev => ({ ...prev, isSubmitting: true }));
-    
+
     // Simulamos envío del formulario
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
     toast({
       title: "Mensaje enviado con éxito",
       description: "Gracias por contactarme. Me pondré en contacto contigo pronto.",
     });
-    
+
     setFormState({
       name: "",
       email: "",
@@ -83,20 +95,76 @@ const Contact: React.FC = () => {
     },
   ];
 
+  // Configuración de partículas (basada en Hero.tsx)
+  const particleOptions = {
+    fpsLimit: 120,
+    particles: {
+      color: {
+        value: "#ffffff",
+      },
+      links: {
+        color: "#64748b", // slate-500
+        distance: 150,
+        enable: true,
+        opacity: 0.5,
+        width: 1,
+      },
+      move: {
+        direction: "none" as const,
+        enable: true,
+        outModes: {
+          default: "bounce" as const,
+        },
+        random: false,
+        speed: 1,
+        straight: false,
+      },
+      number: {
+        density: {
+          enable: true,
+          area: 800,
+        },
+        value: 80,
+      },
+      opacity: {
+        value: 0.5,
+      },
+      shape: {
+        type: "circle" as const,
+      },
+      size: {
+        value: { min: 1, max: 3 },
+      },
+    },
+    detectRetina: true,
+  };
+
   return (
-    <section id="contacto" className="py-20 bg-gradient-to-br from-[#0a0c14] to-[#161a2c] relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" 
+    <section
+      id="contacto"
+      className="py-20 bg-gradient-to-br from-[#0a0c14] to-[#161a2c] relative overflow-hidden" // Este es el fondo que estaba en el código que me pasaste
+    >
+      {/* Background pattern original del código que proporcionaste */}
+      <div className="absolute inset-0 opacity-10 z-0"> {/* z-0 para que esté detrás de las partículas si es necesario */}
+        <div className="absolute inset-0"
              style={{
                backgroundImage: `radial-gradient(circle at 25px 25px, rgba(0, 0, 200, 0.2) 2%, transparent 0%)`,
                backgroundSize: "50px 50px"
              }}
         />
       </div>
-      
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <motion.h2 
+
+      {/* Componente de Partículas Añadido */}
+      <Particles
+        id="contact-particles-new" // ID único y diferente al de otras instancias
+        init={particlesInit}
+        loaded={particlesLoaded}
+        className="absolute top-0 left-0 w-full h-full z-[1]" // z-[1] para estar sobre el patrón de puntos si opacity-10 lo hace muy tenue, pero debajo del contenido principal
+        options={particleOptions}
+      />
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10"> {/* Contenido con z-10 */}
+        <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -105,9 +173,9 @@ const Contact: React.FC = () => {
         >
           Contacto
         </motion.h2>
-        
+
         <div className="flex flex-col lg:flex-row gap-16">
-          <motion.div 
+          <motion.div
             className="w-full lg:w-1/2"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -118,10 +186,10 @@ const Contact: React.FC = () => {
             <p className="text-gray-600 text-white mb-8">
               Si estás interesado en trabajar conmigo o tienes alguna pregunta, no dudes en ponerte en contacto. Estaré encantado de escucharte y responderé a tu mensaje lo antes posible.
             </p>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
               {contactInfo.map((item, index) => (
-                <ContactItem 
+                <ContactItem
                   key={index}
                   icon={item.icon}
                   title={item.title}
@@ -131,8 +199,8 @@ const Contact: React.FC = () => {
               ))}
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="w-full lg:w-1/2"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -141,51 +209,51 @@ const Contact: React.FC = () => {
           >
             <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-lg p-8">
               <h3 className="text-2xl font-bold mb-6 dark:text-white">Envíame un mensaje</h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="name">Nombre</Label>
-                  <Input 
-                    id="name" 
+                  <Input
+                    id="name"
                     name="name"
                     value={formState.name}
                     onChange={handleChange}
-                    placeholder="Tu nombre" 
+                    placeholder="Tu nombre"
                     required
                     className="mt-1"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="email">Email</Label>
-                  <Input 
-                    id="email" 
+                  <Input
+                    id="email"
                     name="email"
                     type="email"
                     value={formState.email}
                     onChange={handleChange}
-                    placeholder="tu@email.com" 
+                    placeholder="tu@email.com"
                     required
                     className="mt-1"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="message">Mensaje</Label>
-                  <Textarea 
-                    id="message" 
+                  <Textarea
+                    id="message"
                     name="message"
                     value={formState.message}
                     onChange={handleChange}
-                    placeholder="¿En qué puedo ayudarte?" 
+                    placeholder="¿En qué puedo ayudarte?"
                     required
                     rows={6}
                     className="mt-1"
                   />
                 </div>
-                
-                <Button 
-                  type="submit" 
+
+                <Button
+                  type="submit"
                   className="w-full group relative overflow-hidden bg-blue-600 hover:bg-blue-700"
                   disabled={formState.isSubmitting}
                 >
