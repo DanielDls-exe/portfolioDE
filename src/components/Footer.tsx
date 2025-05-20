@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
           
           <div className="flex gap-6">
             <a 
-              href="https://github.com/tu-usuario" 
+              href="https://github.com/DanielDls-exe" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors"
@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
               <Github className="h-6 w-6" />
             </a>
             <a 
-              href="https://linkedin.com/in/tu-usuario" 
+              href="https://www.linkedin.com/in/danieldls-exe/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors"
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
               <Linkedin className="h-6 w-6" />
             </a>
             <a 
-              href="mailto:tu.email@ejemplo.com" 
+              href="mailto:danieldls.ucv@gmail.com" 
               className="text-slate-400 hover:text-white transition-colors"
               aria-label="Email"
             >
