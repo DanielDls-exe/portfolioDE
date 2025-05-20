@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.h2 
-          className="text-3xl md:text-4xl font-bold text-center mb-16 dark:text-white"
+          className="text-3xl md:text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -114,8 +114,8 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-6 dark:text-white">¿Hablamos?</h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-8">
+            <h3 className="text-2xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">¿Hablamos?</h3>
+            <p className="text-gray-600 text-white mb-8">
               Si estás interesado en trabajar conmigo o tienes alguna pregunta, no dudes en ponerte en contacto. Estaré encantado de escucharte y responderé a tu mensaje lo antes posible.
             </p>
             

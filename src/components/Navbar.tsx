@@ -73,8 +73,7 @@ const Navbar: React.FC = () => {
                   {item.name}
                 </a>
               ))}
-              
-              <Button className="ml-4">Contacto</Button>
+            
             </div>
             
             {/* Mobile Menu Button */}

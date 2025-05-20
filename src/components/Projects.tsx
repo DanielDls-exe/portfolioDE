@@ -56,23 +56,26 @@ const Projects: React.FC = () => {
   const [selectedTechnology, setSelectedTechnology] = useState<string | null>(null);
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
   
-  // Extraer todas las tecnologías únicas
   const allTechnologies = Array.from(
     new Set(projects.flatMap((project) => project.technologies))
   ).sort();
   
-  // Filtrar proyectos según la tecnología seleccionada
   const filteredProjects = selectedTechnology 
     ? projects.filter(project => 
         project.technologies.includes(selectedTechnology)
       )
     : projects;
 
+  // Clases para los filtros NO seleccionados (estilo oscuro detallado)
+  const unselectedFilterClasses = "text-sm text-slate-100 bg-slate-800/80 border border-slate-700/50 hover:bg-slate-700/90 hover:text-slate-50 transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm shadow-lg";
+  // Clases para el filtro SELECCIONADO (se usa con variant="default" que en modo oscuro es fondo claro/texto oscuro)
+  const selectedFilterClasses = "text-sm"; 
+
   return (
     <section id="proyectos" className="py-20 bg-gradient-to-br from-[#0a0c14] to-[#161a2c]">
       <div className="container mx-auto px-4 md:px-6">
         <motion.h2 
-          className="text-3xl md:text-4xl font-bold text-center mb-6 dark:text-white"
+          className="text-3xl md:text-4xl font-bold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -82,7 +85,7 @@ const Projects: React.FC = () => {
         </motion.h2>
         
         <motion.p 
-          className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12"
+          className="text-center text-white max-w-2xl mx-auto mb-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -91,12 +94,11 @@ const Projects: React.FC = () => {
           Una selección de mis proyectos más destacados en ingeniería y análisis de datos
         </motion.p>
         
-        {/* Filtros de tecnologías */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           <Button 
             variant={selectedTechnology === null ? "default" : "outline"}
             onClick={() => setSelectedTechnology(null)}
-            className="text-sm"
+            className={selectedTechnology === null ? selectedFilterClasses : unselectedFilterClasses}
           >
             Todos
           </Button>
@@ -106,14 +108,14 @@ const Projects: React.FC = () => {
               key={tech}
               variant={selectedTechnology === tech ? "default" : "outline"}
               onClick={() => setSelectedTechnology(tech)}
-              className="text-sm "
+              className={selectedTechnology === tech ? selectedFilterClasses : unselectedFilterClasses}
             >
               {tech}
             </Button>
           ))}
         </div>
 
-        {/* Lista de proyectos */}
+        {/* ... resto del componente ... */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
             <motion.div
@@ -154,7 +156,11 @@ const Projects: React.FC = () => {
                   
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="outline" className="bg-blue-50 dark:bg-blue-900/20 text-xs">
+                      <Badge 
+                        key={tech} 
+                        variant="outline" 
+                        className="bg-blue-50 dark:bg-slate-800/80 text-xs" // Esta es la pastilla dentro de la tarjeta del proyecto
+                      >
                         {tech}
                       </Badge>
                     ))}
