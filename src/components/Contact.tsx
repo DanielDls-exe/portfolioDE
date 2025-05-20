@@ -81,13 +81,13 @@ const Contact: React.FC = () => {
     {
       icon: <Github className="h-6 w-6" />,
       title: "GitHub",
-      value: "github.com/DanielDls-exe",
+      value: "danieldls-exe",
       href: "https://github.com/DanielDls-exe",
     },
     {
       icon: <Linkedin className="h-6 w-6" />,
       title: "LinkedIn",
-      value: "linkedin.com/in/danieldls-exe/",
+      value: "danieldls-exe",
       href: "https://www.linkedin.com/in/danieldls-exe/",
     },
   ];
