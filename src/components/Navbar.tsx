@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
       <nav 
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           isScrolled 
-            ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md" 
+            ? "bg-slate-900/90 backdrop-blur-md shadow-md" 
             : "bg-transparent"
         }`}
       >
@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
                   href={item.href}
                   className={`px-4 py-2 rounded-md transition-colors ${
                     isScrolled 
-                      ? "text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" 
+                      ? "text-slate-700 text-white" 
                       : "text-slate-200 hover:text-white"
                   }`}
                   onClick={(e) => {

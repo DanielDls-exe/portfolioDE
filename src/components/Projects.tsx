@@ -106,7 +106,7 @@ const Projects: React.FC = () => {
               key={tech}
               variant={selectedTechnology === tech ? "default" : "outline"}
               onClick={() => setSelectedTechnology(tech)}
-              className="text-sm"
+              className="text-sm "
             >
               {tech}
             </Button>

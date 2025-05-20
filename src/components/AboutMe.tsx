@@ -13,7 +13,7 @@ const AboutMe: React.FC = () => {
     <section id="sobre-mi" className="py-20 bg-gradient-to-br from-[#0a0c14] to-[#161a2c]">
       <div className="container mx-auto px-4 md:px-6">
         <motion.h2 
-          className="text-3xl md:text-4xl font-bold text-center mb-16 dark:text-white"
+          className="text-3xl md:text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -52,11 +52,11 @@ const AboutMe: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl md:text-2xl font-semibold mb-4 dark:text-white">Transformando datos en valor</h3>
-            <p className="text-gray-700 dark:text-gray-300 mb-6">
+            <h3 className="text-xl md:text-2xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Transformando datos en valor</h3>
+            <p className="text-white mb-6">
               Como ingeniero de datos apasionado, me especializo en diseñar sistemas de datos robustos y escalables que transforman información compleja en insights valiosos. Mi enfoque combina experiencia técnica con pensamiento estratégico para resolver problemas de datos desafiantes.
             </p>
-            <p className="text-gray-700 dark:text-gray-300 mb-8">
+            <p className="text-white mb-8">
               Mi experiencia abarca todo el ciclo de vida de los datos, desde la adquisición y el procesamiento hasta la entrega en forma de pipelines eficientes. Me impulsa la creación de soluciones que permitan a las organizaciones tomar decisiones basadas en datos.
             </p>
             
