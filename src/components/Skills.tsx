@@ -121,7 +121,6 @@ const SkillCategorySection: React.FC<{ category: SkillCategoryType; skills: Skil
 };
 
 const Skills: React.FC = () => {
-  // Agrupar habilidades por categoría
   const skillsByCategory = skills.reduce<Record<string, Skill[]>>((acc, skill) => {
     if (!acc[skill.category]) {
       acc[skill.category] = [];
@@ -130,7 +129,6 @@ const Skills: React.FC = () => {
     return acc;
   }, {});
 
-  // Obtener todas las categorías únicas
   const categories = Object.keys(skillsByCategory) as SkillCategoryType[];
 
   return (

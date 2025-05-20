@@ -1,8 +1,8 @@
-import React, { useCallback } from "react"; // Asegúrate que useCallback está importado
+import React, { useCallback } from "react";
 import { motion } from "framer-motion";
-import Particles from "react-particles"; // Importación añadida
-import type { Engine } from "tsparticles-engine"; // Importación añadida
-import { loadSlim } from "tsparticles-slim"; // Importación añadida
+import Particles from "react-particles"; 
+import type { Engine } from "tsparticles-engine"; 
+import { loadSlim } from "tsparticles-slim"; 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -33,13 +33,11 @@ const ContactItem: React.FC<{
 );
 
 const Contact: React.FC = () => {
-  // Funciones para inicializar y cargar las partículas
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
   const particlesLoaded = useCallback(async (container: any) => {
-    // console.log("Contact Particles container loaded", container); // Opcional para debugging
   }, []);
 
   const [formState, setFormState] = React.useState({
@@ -58,7 +56,6 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setFormState(prev => ({ ...prev, isSubmitting: true }));
 
-    // Simulamos envío del formulario
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     toast({
@@ -78,24 +75,23 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
-      value: "tu.email@ejemplo.com",
-      href: "mailto:tu.email@ejemplo.com",
+      value: "danieldls.ucv@gmail.com",
+      href: "mailto:danieldls.ucv@gmail.com",
     },
     {
       icon: <Github className="h-6 w-6" />,
       title: "GitHub",
-      value: "github.com/tu-usuario",
-      href: "https://github.com/tu-usuario",
+      value: "github.com/DanielDls-exe",
+      href: "https://github.com/DanielDls-exe",
     },
     {
       icon: <Linkedin className="h-6 w-6" />,
       title: "LinkedIn",
-      value: "linkedin.com/in/tu-usuario",
-      href: "https://linkedin.com/in/tu-usuario",
+      value: "linkedin.com/in/danieldls-exe/",
+      href: "https://www.linkedin.com/in/danieldls-exe/",
     },
   ];
 
-  // Configuración de partículas (basada en Hero.tsx)
   const particleOptions = {
     fpsLimit: 120,
     particles: {
@@ -103,7 +99,7 @@ const Contact: React.FC = () => {
         value: "#ffffff",
       },
       links: {
-        color: "#64748b", // slate-500
+        color: "#64748b", 
         distance: 150,
         enable: true,
         opacity: 0.5,
@@ -142,10 +138,9 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contacto"
-      className="py-20 bg-gradient-to-br from-[#0a0c14] to-[#161a2c] relative overflow-hidden" // Este es el fondo que estaba en el código que me pasaste
+      className="py-20 bg-gradient-to-br from-[#0a0c14] to-[#161a2c] relative overflow-hidden" 
     >
-      {/* Background pattern original del código que proporcionaste */}
-      <div className="absolute inset-0 opacity-10 z-0"> {/* z-0 para que esté detrás de las partículas si es necesario */}
+      <div className="absolute inset-0 opacity-10 z-0"> 
         <div className="absolute inset-0"
              style={{
                backgroundImage: `radial-gradient(circle at 25px 25px, rgba(0, 0, 200, 0.2) 2%, transparent 0%)`,
@@ -153,17 +148,15 @@ const Contact: React.FC = () => {
              }}
         />
       </div>
-
-      {/* Componente de Partículas Añadido */}
       <Particles
-        id="contact-particles-new" // ID único y diferente al de otras instancias
+        id="contact-particles-new"
         init={particlesInit}
         loaded={particlesLoaded}
-        className="absolute top-0 left-0 w-full h-full z-[1]" // z-[1] para estar sobre el patrón de puntos si opacity-10 lo hace muy tenue, pero debajo del contenido principal
+        className="absolute top-0 left-0 w-full h-full z-[1]" 
         options={particleOptions}
       />
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10"> {/* Contenido con z-10 */}
+      <div className="container mx-auto px-4 md:px-6 relative z-10"> 
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300"
           initial={{ opacity: 0 }}

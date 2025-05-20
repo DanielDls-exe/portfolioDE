@@ -66,9 +66,7 @@ const Projects: React.FC = () => {
       )
     : projects;
 
-  // Clases para los filtros NO seleccionados (estilo oscuro detallado)
   const unselectedFilterClasses = "text-sm text-slate-100 bg-slate-800/80 border border-slate-700/50 hover:bg-slate-700/90 hover:text-slate-50 transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm shadow-lg";
-  // Clases para el filtro SELECCIONADO (se usa con variant="default" que en modo oscuro es fondo claro/texto oscuro)
   const selectedFilterClasses = "text-sm"; 
 
   return (
@@ -157,7 +155,7 @@ const Projects: React.FC = () => {
                       <Badge 
                         key={tech} 
                         variant="outline" 
-                        className="bg-blue-50 dark:bg-slate-800/80 text-xs" // Esta es la pastilla dentro de la tarjeta del proyecto
+                        className="bg-blue-50 dark:bg-slate-800/80 text-xs" 
                       >
                         {tech}
                       </Badge>
