@@ -25,8 +25,10 @@ const Navbar: React.FC = () => {
     { name: "Sobre Mí", href: "#sobre-mi" },
     { name: "Proyectos", href: "#proyectos" },
     { name: "Habilidades", href: "#habilidades" },
-    { name: "Contacto", href: "#contacto" } 
+    { name: "Contacto", href: "#contacto" }
   ];
+  
+  const hamburgerLineColor = "bg-white";
 
   return (
     <>
@@ -44,14 +46,10 @@ const Navbar: React.FC = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`px-4 py-2 rounded-md transition-colors ${
-                    isScrolled
-                      ? "text-slate-700 text-white" 
-                      : "text-slate-200 hover:text-white" 
-                  }`}
+                  className={`px-4 py-2 rounded-md transition-colors text-slate-200 hover:text-white`}
                   onClick={(e) => {
                     e.preventDefault();
-                    setIsMobileMenuOpen(false); 
+                    setIsMobileMenuOpen(false);
                     document.querySelector(item.href)?.scrollIntoView({
                       behavior: "smooth"
                     });
@@ -63,41 +61,25 @@ const Navbar: React.FC = () => {
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-full ${
-                isScrolled
-                  ? "bg-slate-100 dark:bg-slate-800" 
-                  : "bg-slate-800/50" 
-              }`}
+              className="md:hidden flex flex-col items-center justify-center w-10 h-10" 
               aria-label="Menu"
             >
               <div className="relative w-6 h-5">
                 <span
-                  className={`absolute w-full h-0.5 rounded-lg transform transition-all duration-300 ${
+                  className={`absolute w-full h-0.5 ${hamburgerLineColor} rounded-lg transform transition-all duration-300 ${
                     isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
-                  } ${
-                    isScrolled || isMobileMenuOpen 
-                      ? "bg-slate-800 dark:bg-white" 
-                      : "bg-white"
                   }`}
                   style={{ top: "0%" }}
                 />
                 <span
-                  className={`absolute w-full h-0.5 rounded-lg transform transition-all duration-300 ${
+                  className={`absolute w-full h-0.5 ${hamburgerLineColor} rounded-lg transform transition-all duration-300 ${
                     isMobileMenuOpen ? "opacity-0" : "opacity-100"
-                  } ${
-                    isScrolled || isMobileMenuOpen
-                      ? "bg-slate-800 dark:bg-white" 
-                      : "bg-white" 
                   }`}
                   style={{ top: "40%" }}
                 />
                 <span
-                  className={`absolute w-full h-0.5 rounded-lg transform transition-all duration-300 ${
+                  className={`absolute w-full h-0.5 ${hamburgerLineColor} rounded-lg transform transition-all duration-300 ${
                     isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-                  } ${
-                    isScrolled || isMobileMenuOpen
-                      ? "bg-slate-800 dark:bg-white" 
-                      : "bg-white" 
                   }`}
                   style={{ top: "80%" }}
                 />
@@ -115,15 +97,15 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 pt-20 bg-white dark:bg-slate-900" 
+            className="fixed inset-0 z-40 pt-20 bg-slate-900" 
           >
             <div className="container mx-auto px-4 py-6">
               <div className="flex flex-col space-y-4">
-                {navItems.map((item) => ( 
+                {navItems.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="py-3 text-lg font-medium text-slate-800 dark:text-white border-b border-gray-200 dark:border-gray-800" 
+                    className="py-3 text-lg font-medium text-white border-b border-gray-800"
                     onClick={(e) => {
                       e.preventDefault();
                       setIsMobileMenuOpen(false);
@@ -137,7 +119,6 @@ const Navbar: React.FC = () => {
                     {item.name}
                   </a>
                 ))}
-                {/* El botón de contacto separado en el menú móvil se elimina ya que "Contacto" está en navItems */}
               </div>
             </div>
           </motion.div>
