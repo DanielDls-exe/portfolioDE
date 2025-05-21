@@ -21,11 +21,11 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navItems = [
-    { name: "Inicio", href: "#hero" },
-    { name: "Sobre Mí", href: "#sobre-mi" },
-    { name: "Proyectos", href: "#proyectos" },
-    { name: "Habilidades", href: "#habilidades" },
-    { name: "Contacto", href: "#contacto" }
+    { name: "Home", href: "#hero" },
+    { name: "About me", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
+    { name: "Contact", href: "#contact" }
   ];
   
   const hamburgerLineColor = "bg-white";

@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
           </h1>
           <h2 className="text-2xl md:text-3xl font-light mb-6">Data Engineer</h2>
           <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10">
-            Transformando datos complejos en soluciones inteligentes y accionables
+          Transforming complex data into intelligent and actionable solutions.
           </p>
         </motion.div>
         
@@ -89,10 +89,10 @@ const Hero: React.FC = () => {
           transition={{ delay: 0.5, duration: 0.5 }}
         >
           <Button 
-            onClick={() => document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             className="group bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-lg text-lg transition-all duration-300 hover:shadow-lg"
           >
-            Ver Proyectos
+            See my projects
             <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             <span className="absolute bottom-0 left-0 w-0 h-1 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
           </Button>

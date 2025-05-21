@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
 
   return (
     <section
-      id="contacto"
+      id="contact"
       className="py-20 bg-gradient-to-br from-[#0a0c14] to-[#161a2c] relative overflow-hidden" 
     >
       <div className="absolute inset-0 opacity-10 z-0"> 

@@ -4,13 +4,13 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 
 const AboutMe: React.FC = () => {
   const stats = [
-    { value: 5, label: "Años de Experiencia", detail: "Trabajando en proyectos de data engineering" },
-    { value: 25, label: "Proyectos Completados", detail: "Abarcando diversos sectores y tecnologías" },
-    { value: 12, label: "Pipelines ETL", detail: "Diseñados y optimizados para alto rendimiento" },
+    { value: 5, label: "Years of Experience", detail: "Trabajando en proyectos de data engineering" },
+    { value: 25, label: "Projects Completed", detail: "Abarcando diversos sectores y tecnologías" },
+    { value: 12, label: "ETL Pipelines", detail: "Diseñados y optimizados para alto rendimiento" },
   ];
 
   return (
-    <section id="sobre-mi" className="py-20 bg-gradient-to-br from-[#0a0c14] to-[#161a2c]">
+    <section id="about" className="py-20 bg-gradient-to-br from-[#0a0c14] to-[#161a2c]">
       <div className="container mx-auto px-4 md:px-6">
         <motion.h2 
           className="text-3xl md:text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300"
@@ -19,7 +19,7 @@ const AboutMe: React.FC = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          Sobre Mí
+          About me
         </motion.h2>
         
         <div className="flex flex-col md:flex-row gap-12 items-center">
@@ -33,14 +33,14 @@ const AboutMe: React.FC = () => {
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden border-4 border-dashed border-blue-500 p-2">
                 <div className="w-full h-full rounded-xl overflow-hidden bg-gray-300">
-                  {/* Placeholder for your image */}
                   <div className="w-full h-full flex items-center justify-center text-gray-500 text-lg">
-                    Tu Foto Aquí
+                  <img 
+      src="/cat.webp" 
+      className="w-full h-full object-cover rounded-xl" 
+      loading="lazy" 
+    />
                   </div>
                 </div>
-              </div>
-              <div className="absolute -bottom-4 -right-4 h-24 w-24 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-3xl">
-                DE
               </div>
             </div>
           </motion.div>
@@ -52,12 +52,12 @@ const AboutMe: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl md:text-2xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Transformando datos en valor</h3>
+            <h3 className="text-xl md:text-2xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Turning Data into Value</h3>
             <p className="text-white mb-6">
-              Como ingeniero de datos apasionado, me especializo en diseñar sistemas de datos robustos y escalables que transforman información compleja en insights valiosos. Mi enfoque combina experiencia técnica con pensamiento estratégico para resolver problemas de datos desafiantes.
+            As a passionate Data Engineer, I specialize in designing robust and scalable data systems that transform complex information into valuable insights. My approach combines technical expertise with strategic thinking to solve challenging data problems.
             </p>
             <p className="text-white mb-8">
-              Mi experiencia abarca todo el ciclo de vida de los datos, desde la adquisición y el procesamiento hasta la entrega en forma de pipelines eficientes. Me impulsa la creación de soluciones que permitan a las organizaciones tomar decisiones basadas en datos.
+            My experience spans the entire data lifecycle, from acquisition and processing to the delivery of efficient pipelines. I am driven by creating solutions that empower organizations to make data-driven decisions.
             </p>
             
             <TooltipProvider>
