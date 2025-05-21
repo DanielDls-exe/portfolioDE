@@ -10,11 +10,11 @@ type Skill = {
 };
 
 enum SkillCategoryType {
-  Languages = "Lenguajes",
-  Databases = "Bases de Datos",
+  Languages = "Languages",
+  Databases = "Databases",
   Cloud = "Cloud",
   BigData = "Big Data",
-  Tools = "Herramientas",
+  Tools = "Tools",
 }
 
 const skills: Skill[] = [
@@ -141,7 +141,7 @@ const Skills: React.FC = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Habilidades</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Skills</span>
         </motion.h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">

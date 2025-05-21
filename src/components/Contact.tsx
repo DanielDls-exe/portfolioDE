@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { motion } from "framer-motion";
-import Particles from "react-particles"; 
-import type { Engine } from "tsparticles-engine"; 
-import { loadSlim } from "tsparticles-slim"; 
+import Particles from "react-particles";
+import type { Engine } from "tsparticles-engine";
+import { loadSlim } from "tsparticles-slim";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -59,8 +59,8 @@ const Contact: React.FC = () => {
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     toast({
-      title: "Mensaje enviado con éxito",
-      description: "Gracias por contactarme. Me pondré en contacto contigo pronto.",
+      title: "Message sent successfully",
+      description: "Thanks for reaching out. I'll get back to you soon.",
     });
 
     setFormState({
@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
         value: "#ffffff",
       },
       links: {
-        color: "#64748b", 
+        color: "#64748b",
         distance: 150,
         enable: true,
         opacity: 0.5,
@@ -138,9 +138,9 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-br from-[#0a0c14] to-[#161a2c] relative overflow-hidden" 
+      className="py-20 bg-gradient-to-br from-[#0a0c14] to-[#161a2c] relative overflow-hidden"
     >
-      <div className="absolute inset-0 opacity-10 z-0"> 
+      <div className="absolute inset-0 opacity-10 z-0">
         <div className="absolute inset-0"
              style={{
                backgroundImage: `radial-gradient(circle at 25px 25px, rgba(0, 0, 200, 0.2) 2%, transparent 0%)`,
@@ -152,11 +152,11 @@ const Contact: React.FC = () => {
         id="contact-particles-new"
         init={particlesInit}
         loaded={particlesLoaded}
-        className="absolute top-0 left-0 w-full h-full z-[1]" 
+        className="absolute top-0 left-0 w-full h-full z-[1]"
         options={particleOptions}
       />
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10"> 
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300"
           initial={{ opacity: 0 }}
@@ -164,7 +164,7 @@ const Contact: React.FC = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          Contacto
+          Contact
         </motion.h2>
 
         <div className="flex flex-col lg:flex-row gap-16">
@@ -175,9 +175,9 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">¿Hablamos?</h3>
+            <h3 className="text-2xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Get in Touch</h3>
             <p className="text-white mb-8">
-              Si estás interesado en trabajar conmigo o tienes alguna pregunta, no dudes en ponerte en contacto. Estaré encantado de escucharte y responderé a tu mensaje lo antes posible.
+              If you're interested in working with me or have any questions, don't hesitate to get in touch. I'd be happy to hear from you and will respond to your message as soon as possible.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
@@ -201,19 +201,19 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
           >
             <div className="bg-slate-800/80 border border-slate-700/50 rounded-2xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold mb-6 text-white">Envíame un mensaje</h3>
+              <h3 className="text-2xl font-bold mb-6 text-white">Send me a message</h3>
 
               <form onSubmit={handleSubmit} className="space-y-6 text-white">
                 <div>
-                  <Label htmlFor="name">Nombre</Label>
+                  <Label htmlFor="name">Name</Label>
                   <Input
                     id="name"
                     name="name"
                     value={formState.name}
                     onChange={handleChange}
-                    placeholder="Tu nombre"
+                    placeholder="Your name"
                     required
-                    className="mt-1"
+                    className="mt-1 text-black"
                   />
                 </div>
 
@@ -225,23 +225,23 @@ const Contact: React.FC = () => {
                     type="email"
                     value={formState.email}
                     onChange={handleChange}
-                    placeholder="tu@email.com"
+                    placeholder="your@email.com"
                     required
-                    className="mt-1"
+                    className="mt-1 text-black"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="message">Mensaje</Label>
+                  <Label htmlFor="message">Message</Label>
                   <Textarea
                     id="message"
                     name="message"
                     value={formState.message}
                     onChange={handleChange}
-                    placeholder="¿En qué puedo ayudarte?"
+                    placeholder="How can I help you?"
                     required
                     rows={6}
-                    className="mt-1"
+                    className="mt-1 text-black"
                   />
                 </div>
 
@@ -253,10 +253,10 @@ const Contact: React.FC = () => {
                   <span className="absolute inset-0 w-0 bg-blue-800 transition-all duration-[400ms] ease-out group-hover:w-full"></span>
                   <span className="relative flex items-center justify-center gap-2">
                     {formState.isSubmitting ? (
-                      "Enviando..."
+                      "Sending..."
                     ) : (
                       <>
-                        Enviar Mensaje
+                        Send Message
                         <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </>
                     )}

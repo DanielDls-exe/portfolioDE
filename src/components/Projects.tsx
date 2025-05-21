@@ -23,32 +23,32 @@ const projectsData: Project[] = [
     id: 1,
     title: "Real-Time ETL Pipeline",
     description: "Streaming data processing system for real-time analysis.",
-    image: "/placeholder.svg", // Reemplaza con la ruta a tu imagen real
+    image: "/placeholder.svg", 
     technologies: ["Apache Kafka", "Spark Streaming", "Python", "AWS"],
     complexity: 85,
     details: "I developed a real-time data processing system that ingests information from multiple sources, processes it with Spark Streaming, and stores it for analysis. The system handles over 1 million events per minute with low latency.",
-    githubLink: "https://github.com", // Reemplaza con tu enlace real
+    githubLink: "https://github.com", 
   },
   {
     id: 2,
     title: "Data Warehouse Platform",
     description: "Comprehensive storage and analysis solution for large volumes of data.",
-    image: "/placeholder.svg", // Reemplaza con la ruta a tu imagen real
+    image: "/placeholder.svg",  
     technologies: ["Snowflake", "dbt", "Airflow", "Tableau"],
     complexity: 75,
     details: "I designed and implemented a modern data warehouse architecture using Snowflake, with transformations managed by dbt and orchestration by Airflow. It includes over 50 data models and dashboards for different business teams.",
-    demoLink: "https://example.com", // Reemplaza con tu enlace real
+    demoLink: "https://example.com", 
   },
   {
     id: 3,
     title: "Recommendation System",
     description: "Recommendation engine based on user behavior and ML.",
-    image: "/placeholder.svg", // Reemplaza con la ruta a tu imagen real
+    image: "/placeholder.svg",
     technologies: ["Python", "Scikit-learn", "PostgreSQL", "Docker"],
     complexity: 90,
     details: "I created a recommendation system that analyzes user behavior patterns and uses machine learning algorithms to generate personalized recommendations. It increased the conversion rate by 15%.",
-    githubLink: "https://github.com", // Reemplaza con tu enlace real
-    demoLink: "https://example.com", // Reemplaza con tu enlace real
+    githubLink: "https://github.com", 
+    demoLink: "https://example.com", 
   },
 ];
 
@@ -98,7 +98,7 @@ const Projects: React.FC = () => {
             onClick={() => setSelectedTechnology(null)}
             className={selectedTechnology === null ? selectedFilterClasses : unselectedFilterClasses}
           >
-            All
+            All 
           </Button>
 
           {allTechnologies.map((tech) => (
@@ -114,9 +114,6 @@ const Projects: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => {
-            // CONSOLE.LOG PARA DEPURACIÓN DEL ESTADO DE EXPANSIÓN
-            console.log(`Renderizando Tarjeta ID: ${project.id}, expandedProject ID: ${expandedProject}, ¿Está esta tarjeta expandida?: ${expandedProject === project.id}`);
-
             return (
               <motion.div
                 key={project.id}
@@ -135,7 +132,7 @@ const Projects: React.FC = () => {
                   className="h-full flex flex-col overflow-hidden border-2 dark:border-slate-700 transition-all duration-300 hover:shadow-lg dark:hover:shadow-blue-900/20"
                   onClick={() => {
                     const newExpandedId = expandedProject === project.id ? null : project.id;
-                    console.log(`Clic en Card para proyecto ID: ${project.id}. Nuevo expandedProject será: ${newExpandedId}`);
+                    console.log(`Clic en Card para proyecto ID: ${project.id}. Nuevo expandedProject será: ${newExpandedId}`); 
                     setExpandedProject(newExpandedId);
                   }}
                 >
@@ -191,10 +188,9 @@ const Projects: React.FC = () => {
 
                         <div className="flex flex-wrap gap-3">
                           {project.githubLink && (
-                            // MODIFICADO: Quitado variant="outline" para igualar estilo
-                            <Button size="sm" asChild>
+                            <Button variant="outline" size="sm" asChild>
                               <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                                View on GitHub
+                                View on GitHub 
                               </a>
                             </Button>
                           )}
@@ -218,8 +214,6 @@ const Projects: React.FC = () => {
                       onClick={(e) => {
                         e.stopPropagation();
                         const newExpandedId = expandedProject === project.id ? null : project.id;
-                        // CONSOLE.LOG PARA DEPURACIÓN DEL BOTÓN
-                        console.log(`Botón Read more/Show less click para proyecto ID: ${project.id}. Nuevo expandedProject será: ${newExpandedId}`);
                         setExpandedProject(newExpandedId);
                       }}
                     >
